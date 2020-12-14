@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+int queue[10];
+int rear=-1;
+int front=0;
+void enqueue();
+void dequeue();
+void traverse();
+void main()
+{
+int ch;
+do
+ {
+clrscr();
+printf("\npres 1:Insert element in queue");
+printf("\npres 2:Delete element from queue");
+printf("\npres 3:Exit the program");
+printf("\n********************************************************\n");
+printf("Elements of the queue :");
+traverse();
+printf("\n********************************************************\n");printf("\nEnter your choice =");
+scanf("%d",&ch);
+switch(ch)
+  {
+case 1:enqueue();
+	break;
+case 2:dequeue();
+	printf("\npress any key to continue...");
+	getch();
+	break;
+case 3:exit(1);
+	break;
+default:printf("\nyou have selected wrong option. Try Again...");
+	getch();
+	break;
+  }
+ }
+while(ch);
+}
+void enqueue()
+{
+int add_item;
+if(front==-1)
+front=0;
+printf("Insert the element in queue :");
+scanf("%d",&add_item);
+rear=rear+1;
+queue[rear]=add_item;
+}
+void dequeue()
+{printf("Element deleted from queue is :%d",queue[front]);
+front++;
+}
+void traverse()
+{int i;
+for(i=front;i<=rear;i++)
+printf("%d\t",queue[i]);
+}
